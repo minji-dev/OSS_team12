@@ -33,3 +33,32 @@ h2 {
     transform: translate(-50%, -50%);
     text-align: center;
 }
+
+.btnMale {
+    border-radius: 4px;
+    border: medium solid #000000;
+    background-color:rgb(92, 250, 246);
+    font-family: "Arial", Impact, Charcoal, sans-serif;
+    font-weight: bold;
+    font-size:20px;
+    color: #ffffff;
+    padding: 5px 30px;
+    margin: 70px 70px;
+    position: absolute;
+    left: -250px;
+    top: -350px;
+}
+.btnFemale {
+    border-radius: 4px;
+    border: medium solid #000000;
+    background-color: pink;
+    font-family: "Arial", Impact, Charcoal, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding: 5px 30px;
+    margin: 70px 70px;
+    position: absolute;
+    left: -120px;
+    top: -350px;
+}
