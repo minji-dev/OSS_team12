@@ -8,8 +8,8 @@ app.use(express.static(`${__dirname}/public`));
 
 // 화면 engine을 html로 설정
 app.set("views", "./views");
-// app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+// app.engine('html', require('ejs').renderFile);
 
 // 라우팅
 const home = require("./routes");
