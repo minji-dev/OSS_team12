@@ -37,7 +37,7 @@ h2 {
 .btnMale {
     border-radius: 4px;
     border: medium solid #000000;
-    background-color:rgb(92, 250, 246);
+    background-color:rgba(0, 0, 0, 0.688);
     font-family: "Arial", Impact, Charcoal, sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -51,4 +51,19 @@ h2 {
 
 .weather {
     padding: 100px;
+}
+
+table {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+th {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+}
+tr {
+    border: 1px solid black;
+    height: 50px;
 }
