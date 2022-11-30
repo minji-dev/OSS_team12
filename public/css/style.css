@@ -37,7 +37,7 @@ h2 {
 .btnMale {
     border-radius: 4px;
     border: medium solid #000000;
-    background-color:rgb(92, 250, 246);
+    background-color:rgba(0, 0, 0, 0.688);
     font-family: "Arial", Impact, Charcoal, sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -50,5 +50,34 @@ h2 {
 }
 
 .weather {
-    padding: 100px;
+    position: absolute;
+    top: 60%;
+    left: 20%;
+}
+
+table {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+th {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+}
+tr {
+    border: 1px solid black;
+    height: 50px;
+}
+
+i {
+    font-size: 2000%;
+}
+
+.aboveCentered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
