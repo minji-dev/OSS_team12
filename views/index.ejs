@@ -42,17 +42,18 @@
 
     <script>
         function getWeather() {
-            let temperature = document.getElementById("temperature");
-            let description = document.getElementById("description");
-            let location = document.getElementById("location");
-
-            // location.innerHTML = "Locating...";
-            
             navigator.geolocation.getCurrentPosition(success, error);
 
             function success(position) {
-                latitude = position.coords.latitude;
-                longitude = position.coords.longitude;
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                let url = 'http://localhost:3000/weather?lat='+latitude+'&lon='+longitude;
+                fetch(url, {
+                    method: 'GET',
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
             }
 
             function error() {
