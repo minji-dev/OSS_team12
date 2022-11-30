@@ -17,18 +17,18 @@
             <div class="centered">
                 <h2>Screen for weather and outfit recomendation for the weather</h2>
                 <div class="gender selection">
-                    <button id="male" class="btnMale" onclick="window.location.href='male.html';">
+                    <!-- <button id="male" class="btnMale" onclick="window.location.href='male.html';">
                         Male
                     </button>
                     <button id="female" class="btnFemale" onclick="window.location.href='female.html';">
                         Female
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="weather">
-                <h1 id="temperature"></h1>
-                <h2 id="description"></h2>
-                <p id="location"></p>
+                <h1 id="temperature"><%= temp %>°C</h1>
+                <h2 id="description"><%= weather %></h2>
+                <p id="location"><%= loc %></p>
             </div>
         </div>
         
@@ -41,31 +41,25 @@
 
 
     <script>
-        let temperature = document.getElementById("temperature");
-        let description = document.getElementById("description");
-        let location = document.getElementById("location");
+        function getWeather() {
+            let temperature = document.getElementById("temperature");
+            let description = document.getElementById("description");
+            let location = document.getElementById("location");
 
-        location.innerHTML = "Locating...";
+            // location.innerHTML = "Locating...";
+            
+            navigator.geolocation.getCurrentPosition(success, error);
+
+            function success(position) {
+                latitude = position.coords.latitude;
+                longitude = position.coords.longitude;
+            }
+
+            function error() {
+                location.innerHTML = "Unable to retrieve your location";
+            }
+        }
         
-        navigator.geolocation.getCurrentPosition(success, error);
-
-        function success(position) {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-
-                let url =
-                    api +
-                    "?lat=" +
-                    latitude +
-                    "&lon=" +
-                    longitude +
-                    "&appid=" +
-                    apiKey +
-                    "&units=imperial";
-        }
-
-        function error() {
-            location.innerHTML = "Unable to retrieve your location";
-        }
+        getWeather();
     </script>
 </html>
