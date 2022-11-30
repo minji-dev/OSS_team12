@@ -17,17 +17,22 @@ https.get(url,(res)=>{
         root.querySelectorAll(".item_title").forEach((list)=>{
             console.log(list.innerText.trim());
         });
+        console.log("");
         //제품이름
         root.querySelectorAll(".list_info a[title]").forEach((list)=>{
             console.log(list.innerText.trim());
-        })
+        });
+        console.log("");
         //가격
         root.querySelectorAll(".price").forEach((list)=>{
             console.log(list.innerText.trim());
-        })
+        });
+        console.log("");
         //사진 url
-        let img=root.querySelector(".lazyload.lazy");
-        console.log(img.innerHTML);
+        root.querySelectorAll("div.list_img > a > img.lazyload.lazy").forEach((list)=>{
+            console.log(list["src"]);
+        });
+
     });
 })
 
