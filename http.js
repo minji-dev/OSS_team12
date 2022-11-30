@@ -4,10 +4,18 @@ const parser=require("node-html-parser");
 
 
 
-
 function Get_Info(){
+    
+
+
+    console.log("getting info");
+    const header={
+        headers:{
+          "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+        }
+      }
     let url="https://www.musinsa.com/search/musinsa/integration?type=&q="+"패딩";
-    https.get(url,(res)=>{
+    https.get(url,header,(res)=>{
         let data="";
         res.on("data",(d)=>{
             data+=d;
