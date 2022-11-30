@@ -30,7 +30,7 @@ https.get(url,(res)=>{
         console.log("");
         //사진 url
         root.querySelectorAll("div.list_img > a > img.lazyload.lazy").forEach((list)=>{
-            console.log(list["src"]);
+            console.log(list.attributes['data-original']);
         });
 
     });
