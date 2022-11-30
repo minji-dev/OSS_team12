@@ -69,3 +69,15 @@ tr {
     border: 1px solid black;
     height: 50px;
 }
+
+i {
+    font-size: 2000%;
+}
+
+.aboveCentered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
