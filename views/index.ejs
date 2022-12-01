@@ -17,8 +17,8 @@
             <div class="centered">
                 <h2>Screen for weather and outfit recomendation for the weather</h2>
                 <div class="gender selection">
-                    <button id="snd" class="btnMale" onclick="getWeather();">
-                        START!!
+                    <button id="snd" class="btnMale" onclick="gotoMain();">
+                        START!
                     </button>
                 </div>
             </div>
@@ -40,6 +40,7 @@
                 const longitude = position.coords.longitude;
 
                 let url = 'http://localhost:3000/weather?lat='+latitude+'&lon='+longitude;
+                // 
                 fetch(url, {
                     method: 'GET',
                 })
@@ -52,6 +53,11 @@
             }
         }
         
+        function gotoMain() {
+            let url = 'http://localhost:3000/main';
+            location.href = url;
+        }
+
         getWeather();
     </script>
 </html>
