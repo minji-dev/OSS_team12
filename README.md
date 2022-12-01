@@ -28,7 +28,9 @@
 ## Usage
 
 ### Prerequistes
-- Node.js 16.x
+- ejs ^3.1.8
+- express ^4.18.2
+- request ^2.88.2
 
 ### Requirements
 
@@ -41,6 +43,9 @@ $ cd OSS_team12
 
 # Install Packages
 $ npm install
+
+# Install additional Packages
+$ npm install request
 
 # Start development server
 $ npm start
