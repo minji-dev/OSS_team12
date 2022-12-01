@@ -128,13 +128,12 @@ router.get('/location', (req, res, next) => {
     let url = api+`air_pollution?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
     request(url, async (err, res3, body) => {
         if (err) {
-            res.send({ status: 'failed '});
+            res.sendStatus(404);
         } else {
             air_info = await JSON.parse(body);
             if (air_info.list === undefined) {
                 res.sendStatus(404);
-            }
-            else {
+            } else {
                 res.sendStatus(200);
             }
         }    
@@ -143,7 +142,7 @@ router.get('/location', (req, res, next) => {
 
 router.get('/main', (req, res) => {
     res.render('snd', {
-        weather: weather_info.weather[0].main,
+        weather: weather_info.dweather[0].main,
         loc: weather_info.name,
         temp: weather_info.main.temp,
         icon: weather_info.weather.icon,
