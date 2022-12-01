@@ -65,7 +65,7 @@ router.get('/musinsa',(req,res)=>{
     
 })
 
-router.get('/weather', (req, res, next) => {
+router.get('/location', (req, res, next) => {
     lat = req.query.lat;
     lon = req.query.lon;
     let url = api+`weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
@@ -141,7 +141,7 @@ router.get('/weather', (req, res, next) => {
 
 router.get('/main', (req, res) => {
     res.render('snd', {
-        weather: weather_info.dweather[0].main,
+        weather: weather_info.weather[0].main,
         loc: weather_info.name,
         temp: weather_info.main.temp,
         icon: weather_info.weather.icon,
