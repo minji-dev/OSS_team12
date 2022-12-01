@@ -8,6 +8,7 @@ const conf = require('../conf/conf');
 let lat;
 let lon;
 let weather_info;
+let air_info;
 let clothe_info = [];
 
 const api = "https://api.openweathermap.org/data/2.5/";
@@ -88,11 +89,9 @@ router.get('/weather', (req, res, next) => {
         if (err) {
             res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
         } else {
-            let air = await JSON.parse(body);
-            if (air.main == undefined) {
+            air_info = await JSON.parse(body);
+            if (air_info.list == undefined) {
                 res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
-            } else {
-                weather_info.air = air.list[0].main.aqi;
             }
         }
     })
@@ -104,7 +103,7 @@ router.get('/main', (req, res) => {
         loc: weather_info.name,
         temp: weather_info.main.temp,
         icon: weather_info.weather.icon,
-        air: weather_info.air,
+        air: air_info.list[0].main.aqi,
         clothe_info: clothe_info,
         error: null,
     });
