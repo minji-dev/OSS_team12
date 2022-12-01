@@ -32,13 +32,19 @@
                     </tr>
                 </table>
             </div>
+            <div class="recommendation">
+                <h2>추천 옷: <% for(let value of clothe_info){ %>
+                    <%= value %>
+                    <% } %>
+                </h2>
+            </div>
         </div>
         
         <div class="split right">
             <div class="centered"> <!--크롤링위한 id 생성 완료-->
                 <div id="closet">
                     <% for(let value of clothe_info){ %>
-                        <button>
+                        <button class="clothe_button">
                             <%= value %>
                         </button>
                     <% } %>
@@ -52,10 +58,51 @@
     </body>
 
     <script>
-        function clothe_button_load(){
-            for(let value of clothe_info){
-
+        const closet=document.getElementById("closet");
+        const brand=document.getElementById("brand");
+        const name=document.getElementById("name");
+        const price=document.getElementById("price");
+        const pic=document.getElementById("pic");
+        let closet_type;
+        
+        
+        //클릭한 버튼의 옷종류이름가져오기
+        closet.addEventListener('click',(e)=>{
+            
+            //자식노드 없는지 확인
+            while(brand.firstChild){
+                brand.removeChild(brand.firstChild);
             }
-        }
+            while(name.firstChild){
+                name.removeChild(name.firstChild);
+            }
+            while(price.firstChild){
+                price.removeChild(price.firstChild);
+            }
+            while(pic.firstChild){
+                pic.removeChild(pic.firstChild);
+            }
+            closet_type=e.target.innerText;
+            let url='http://localhost:3000/musinsa?type='+closet_type;
+            fetch(url,{
+                method:'GET',
+            })
+            .then(response=>response.json())
+            .then(data=>{
+                const _brand=document.createElement("div");
+                const _name=document.createElement("div");
+                const _price=document.createElement("div");
+                const _pic=document.createElement("img");
+                _brand.textContent=data.brand;
+                _name.textContent=data.name;
+                _price.textContent=data.price;
+                _pic.src=data.photo;
+                brand.appendChild(_brand);
+                name.appendChild(_name);
+                price.appendChild(_price);
+                pic.appendChild(_pic);
+            })
+            .catch(error=>console.log(error));
+        })
     </script>
 </html>

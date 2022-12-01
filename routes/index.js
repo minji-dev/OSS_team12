@@ -4,6 +4,9 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 const conf = require('../conf/conf');
+const https=require("https");
+const parser=require("node-html-parser");
+const { send } = require('process');
 
 let weather;
 let clothe_info = [];
@@ -21,6 +24,43 @@ router.get('/', (req, res) => {
         error: null,
     });
 });
+
+router.get('/musinsa',(req,res)=>{
+    let type=req.query.type;
+    console.log("type: "+type);
+    const header={
+        headers:{
+            "User-Agent":"..."
+        }
+    }
+    let url="https://www.musinsa.com/search/musinsa/integration?type=&q="+type;
+    let send_things={};
+    
+    https.get(url,header,(red)=>{
+        let data="";
+        
+        red.on("data",(d)=>{
+            data+=d;
+        })
+        red.on("end",()=>{
+            let root=parser.parse(data);
+            send_things['brand']=root.querySelector(".item_title").innerText.trim();
+            console.log(send_things);
+            send_things['name']=root.querySelector(".list_info a[title]").innerText.trim();
+            console.log(send_things);
+            send_things['price']=root.querySelector(".price").innerText.trim();
+            console.log(send_things);
+            send_things['photo']="https"+root.querySelector("div.list_img > a > img.lazyload.lazy").attributes['data-original'];
+            console.log(send_things);
+            const json=JSON.stringify(send_things);
+            res.send(json);
+        })
+        
+        
+    })
+    
+    
+})
 
 router.get('/weather', (req, res) => {
     let lat = req.query.lat;
