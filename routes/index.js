@@ -99,7 +99,6 @@ router.get('/weather', (req, res, next) => {
 });
 
 router.get('/main', (req, res) => {
-    console.log(weather_info);
     res.render('snd', {
         weather: weather_info.weather[0].main,
         loc: weather_info.name,
