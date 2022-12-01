@@ -41,6 +41,7 @@
                 const longitude = position.coords.longitude;
 
                 let url = 'http://localhost:3000/weather?lat='+latitude+'&lon='+longitude;
+                // 
                 fetch(url, {
                     method: 'GET',
                 })
