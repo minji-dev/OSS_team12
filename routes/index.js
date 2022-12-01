@@ -73,11 +73,11 @@ router.get('/weather', (req, res, next) => {
 
     request(url, async (err, res2, body) => {
         if (err) {
-            res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
+            res.render('snd', { error: 'Error, please try again' });
         } else {
             weather_info = await JSON.parse(body);
-            if (weather_info.main == undefined) {
-                res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
+            if (weather_info.main === undefined) {
+                res.render('snd', { error: 'Error, please try again' });
             } else {
                 //기온에 따른 옷차림
                 if(weather_info.main.temp<4){
@@ -128,12 +128,13 @@ router.get('/weather', (req, res, next) => {
     let url = api+`air_pollution?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
     request(url, async (err, res3, body) => {
         if (err) {
-            res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
+            res.render('snd', { error: 'Error, please try again' });
         } else {
             air_info = await JSON.parse(body);
-            if (air_info.list == undefined) {
-                res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
+            if (air_info.list === undefined) {
+                res.render('snd', { error: 'Error, please try again' });
             }
+            else    next();
         }
     })
 });
