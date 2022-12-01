@@ -34,6 +34,7 @@ router.get('/weather', (req, res) => {
             if (weather.main == undefined) {
                 res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
             } else {
+                console.log(weather);
                 return res.redirect('http://localhost:3000/main');
             }
         }
@@ -41,7 +42,7 @@ router.get('/weather', (req, res) => {
 });
 
 router.get('/main', (req, res) => {
-    res.render('index', {
+    res.render('snd', {
         weather: weather.weather[0].main,
         descript: weather.weather[0].description,
         loc: weather.name,

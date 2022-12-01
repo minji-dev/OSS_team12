@@ -1,13 +1,10 @@
-const https=require("https");
-const parser=require("node-html-parser");
+const https = require("https");
+const parser = require("node-html-parser");
 
 
 
 
 function Get_Info(){
-    
-
-
     console.log("getting info");
     const header={
         headers:{

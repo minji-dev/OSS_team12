@@ -7,7 +7,7 @@
         <!--BootstrapCSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <!--Custom CSS Style-->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css">
         <title>Before Gender Selected</title>
     </head>
 
@@ -17,18 +17,10 @@
             <div class="centered">
                 <h2>Screen for weather and outfit recomendation for the weather</h2>
                 <div class="gender selection">
-                    <!-- <button id="male" class="btnMale" onclick="window.location.href='male.html';">
-                        Male
+                    <button id="snd" class="btnMale" onclick="gotoMain();">
+                        START!
                     </button>
-                    <button id="female" class="btnFemale" onclick="window.location.href='female.html';">
-                        Female
-                    </button> -->
                 </div>
-            </div>
-            <div class="weather">
-                <h1 id="temperature"><%= temp %>°C</h1>
-                <h2 id="description"><%= weather %></h2>
-                <p id="location"><%= loc %></p>
             </div>
         </div>
         
@@ -38,7 +30,6 @@
             </div>
         </div>
     </body>
-
 
     <script>
         function getWeather() {
@@ -61,6 +52,11 @@
             }
         }
         
+        function gotoMain() {
+            let url = 'http://localhost:3000/main';
+            location.href = url;
+        }
+
         getWeather();
     </script>
 </html>
