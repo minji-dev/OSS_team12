@@ -53,7 +53,7 @@ router.get('/musinsa',(req,res)=>{
             console.log(send_things);
             send_things['price']=root.querySelector(".price").innerText.trim();
             console.log(send_things);
-            send_things['photo']="https"+root.querySelector("div.list_img > a > img.lazyload.lazy").attributes['data-original'];
+            send_things['photo']="https:"+root.querySelector("div.list_img > a > img.lazyload.lazy").attributes['data-original'];
             console.log(send_things);
             const json=JSON.stringify(send_things);
             res.send(json);
@@ -64,7 +64,6 @@ router.get('/musinsa',(req,res)=>{
     
     
 })
-
 
 router.get('/weather', (req, res, next) => {
     lat = req.query.lat;
