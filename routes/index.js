@@ -6,7 +6,7 @@ const request = require('request');
 const conf = require('../conf/conf');
 
 let weather;
-let clothe_info;
+let clothe_info = [];
 
 const api = "https://api.openweathermap.org/data/2.5/weather";
 const apiKey = conf.SERVICE_KEY;
@@ -32,12 +32,9 @@ router.get('/weather', (req, res) => {
             res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
         } else {
             weather = await JSON.parse(body);
-            clothe_info=[];
             if (weather.main == undefined) {
                 res.render('index', { weather: null, temp: null, loc: 'Error, please try again' });
             } else {
-                console.log(weather);
-
                 //기온에 따른 옷차림
                 if(weather.main.temp<4){
                     clothe_info.push('패딩');
@@ -79,8 +76,6 @@ router.get('/weather', (req, res) => {
                     clothe_info.push('반팔');
                     clothe_info.push('반바지');
                 }
-                console.log(clothe_info);
-                return res.redirect('http://localhost:3000/main');
             }
         }
     })
@@ -93,7 +88,7 @@ router.get('/main', (req, res) => {
         loc: weather.name,
         temp: weather.main.temp,
         icon: weather.weather.icon,
-        clothe_info:clothe_info,
+        clothe_info: clothe_info,
         error: null,
     });
 });
