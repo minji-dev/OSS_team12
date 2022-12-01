@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Requiredmetatags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--BootstrapCSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <!--Custom CSS Style-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <title>Before Gender Selected</title>
+    </head>
+    
+    <!--HTMLCode-->
+    <body>
+        <div class="split left"> 
+            <div class="aboveCentered">
+                <i class="bi bi-clouds"></i>
+            </div>
+            <div class="weather">
+                <table>
+                    <tr>
+                        <th>Temperature</th>
+                        <th>Weather</th>
+                        <th>Location</th>
+                    </tr>
+                    <tr>
+                        <td id="temperature"></td>
+                        <td id="description"></td>
+                        <td id="location"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="split right">
+            <button id="test" class="btn btn-primary" type="submit">Test Button</button>
+            <div class="centered"> <!--크롤링위한 id 생성 완료-->
+                <h2 id="brand">brand</h2>
+                <h2 id="name">name</h2>
+                <h2 id="price">price</h2>
+                <h2 id="pic">pic</h2>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        function getWeather() {
+            let temperature = document.getElementById("temperature");
+            let description = document.getElementById("description");
+            let location = document.getElementById("location");
+          
+            let api = "https://api.openweathermap.org/data/2.5/weather";
+            let apiKey = "f146799a557e8ab658304c1b30cc3cfd";
+          
+            location.innerHTML = "Locating...";
+          
+            navigator.geolocation.getCurrentPosition(success, error);
+          
+            function success(position) {
+              latitude = position.coords.latitude;
+              longitude = position.coords.longitude;
+          
+              let url =
+                api +
+                "?lat=" +
+                latitude +
+                "&lon=" +
+                longitude +
+                "&appid=" +
+                apiKey +
+                "&units=imperial";
+          
+              fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                  console.log(data);
+                  let temp = data.main.temp;
+                  temp = (temp-32)*(5/9);
+                  temp = temp.toFixed(0);
+                  temperature.innerHTML = temp + "° C";
+                  location.innerHTML =
+                    data.name + " (" + latitude + "°, " + longitude + "°)";
+                  description.innerHTML = data.weather[0].main;
+                });
+            }
+          
+            function error() {
+              location.innerHTML = "Unable to retrieve your location";
+            }
+          }
+          
+          getWeather();
+      </script>
+      
+      <script src="../http.js"></script>
+</html>
