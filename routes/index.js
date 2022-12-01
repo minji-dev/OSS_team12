@@ -66,18 +66,18 @@ router.get('/musinsa',(req,res)=>{
 })
 
 
-router.get('/weather', (req, res, next) => {
+router.get('/location', (req, res, next) => {
     lat = req.query.lat;
     lon = req.query.lon;
     let url = api+`weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
     request(url, async (err, res2, body) => {
         if (err) {
-            res.render('snd', { error: 'Error, please try again' });
+            res.sendStatus(404);
         } else {
             weather_info = await JSON.parse(body);
             if (weather_info.main === undefined) {
-                res.render('snd', { error: 'Error, please try again' });
+                res.sendStatus(404);
             } else {
                 //기온에 따른 옷차림
                 if(weather_info.main.temp<4){
@@ -128,14 +128,16 @@ router.get('/weather', (req, res, next) => {
     let url = api+`air_pollution?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
     request(url, async (err, res3, body) => {
         if (err) {
-            res.render('snd', { error: 'Error, please try again' });
+            res.send({ status: 'failed '});
         } else {
             air_info = await JSON.parse(body);
             if (air_info.list === undefined) {
-                res.render('snd', { error: 'Error, please try again' });
+                res.sendStatus(404);
             }
-            else    next();
-        }
+            else {
+                res.sendStatus(200);
+            }
+        }    
     })
 });
 

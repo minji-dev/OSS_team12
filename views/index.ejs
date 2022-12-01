@@ -33,20 +33,22 @@
 
     <script>
         function getWeather() {
-            
             navigator.geolocation.getCurrentPosition(success, error);
             
             function success(position) {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
 
-                let url = 'http://localhost:3000/weather?lat='+latitude+'&lon='+longitude;
-                // 
+                let url = 'http://localhost:3000/location?lat='+latitude+'&lon='+longitude;
                 fetch(url, {
                     method: 'GET',
                 })
-                .then(response => response.json())
-                .then(data => console.log(data))
+                .then((response) => {
+                    if(response.status === 200) {
+                        console.log(response.status);
+                        document.getElementById("snd").style.display = "block";
+                    }
+                });
             }
 
             function error() {
@@ -55,7 +57,6 @@
         }
         
         function gotoMain() {
-            
             let url = 'http://localhost:3000/main';
             location.href = url;
         }

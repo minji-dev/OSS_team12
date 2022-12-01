@@ -47,6 +47,7 @@ h2 {
     position: absolute;
     left: -250px;
     top: -350px;
+    display: none;
 }
 
 .weather {
