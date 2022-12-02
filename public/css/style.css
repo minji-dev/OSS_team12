@@ -17,12 +17,14 @@ h2 {
 .left {
     left: 0;
     background-color: white;
+    width: 30%;
 }
 
 /* Control the right side */
 .right {
     right: 0;
-    background-color: white;
+    background-color: lightblue;
+    width: 70%;
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -78,8 +80,8 @@ h2 {
     padding: 16px 32px;
     margin: 70px 70px;
     position: absolute;
-    left: -250px;
-    top: -350px;
+    left: -150px;
+    top: -300px;
     display: none;
 }
 
