@@ -22,8 +22,6 @@ router.get('/', (req, res) => {
 
 router.get('/musinsa',(req,res)=>{
     let type=req.query.type;
-    
-    console.log("type: "+type);
     const header={
         headers:{
             "User-Agent":"..."
@@ -62,11 +60,7 @@ router.get('/musinsa',(req,res)=>{
             const json=JSON.stringify(send_things);
             res.send(json);
         })
-        
-        
     })
-    
-    
 })
 
 router.get('/location', async (req, res, next) => {
@@ -143,13 +137,10 @@ router.get('/location', async (req, res, next) => {
     })
 });
 
-router.get('/weather', (req, res) => {
-    res.json({ weather: weather_info.weather[0].main });
-});
-
 router.get('/main', (req, res) => {
     console.log(weather_info);
     res.render('snd', {
+        weather: weather_info.weather[0].main,
         descript: weather_info.weather[0].description,
         loc: weather_info.name,
         temp: weather_info.main.temp,

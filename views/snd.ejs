@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <!--Custom CSS Style-->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/icon.css">
         <title>Moipji</title>
         <!--Font-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,10 +24,51 @@
                 <div class="left-container">
                     <div id="wrapper-bg" class="card text-black bg-image shadow-4-strong" style="background-image: 'img/sky.jpg';"  >
                     <!-- Main current data -->
-                        <div class="card-body p-4 border-0">
+                        <div class="card-body p-4 border-0" style="background: #86B9E0;">
                             <div class="text-center mb-3">
                             <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
                             <p class="mb-1" id="wrapper-description"><%= descript %></p>
+
+                            <div class="icon">
+                                <% if (weather === "Snow") { %> 
+                                    <div class="weatherIcon">
+                                        <div class="snow">
+                                            <div class="inner"></div>
+                                        </div>
+                                    </div>
+                                <% } else if (weather === "Clouds") {%>
+                                    <div class="weatherIcon">
+                                        <div class="cloudy">
+                                            <div class="inner"></div>
+                                        </div>
+                                    </div>
+                                <% } else if (weather === "Fog") {%>
+                                    <div class="weatherIcon">
+                                        <div class="fog">
+                                            <div class="inner"></div>
+                                        </div>
+                                    </div>
+                                <% } else if (weather === "Rain") {%>
+                                    <div class="weatherIcon">
+                                        <div class="rain">
+                                            <div class="inner"></div>
+                                        </div>
+                                    </div>
+                                <% } else if (weather === "Thunderstorm") {%>
+                                    <div class="weatherIcon">
+                                        <div class="tstorms">
+                                            <div class="inner"></div>
+                                        </div>
+                                    </div>
+                                <% } else { %>
+                                    <div class="weatherIcon">
+                                        <div class="sunny">
+                                            <div class="inner"></div>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+
                             <h1 id="wrapper-temp"><%= temp %>°C</p>
                             <p class="mb-1">Feels like: <span id="wrapper-feels"><%= feels %></span></span>
                             <p>Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
@@ -84,44 +126,6 @@
             </div>
         </body>
     <script>
-        // Backgrounds
-        fetch('http://localhost:3000/weather', {
-            method:'GET',
-        })
-        .then(response => response.json())
-        .then(data => { 
-            switch (data.weather) {
-                case "Snow":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
-                    break;
-                case "Clouds":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "img/sky.jpg";
-                    break;
-                case "Fog":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
-                    break;
-                case "Rain":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
-                    break;
-                case "Clear":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-                    break;
-                case "Thunderstorm":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
-                    break;
-                default:
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
-                    break;
-            }
-        });
-
         const closet=document.getElementById("closet");
         const brand1=document.getElementById("brand1");
         const name1=document.getElementById("name1");
@@ -165,6 +169,7 @@
                 pic2.removeChild(pic2.firstChild);
             }
             closet_type=e.target.innerText;
+
             let url='http://localhost:3000/musinsa?type='+closet_type;
             fetch(url,{
                 method:'GET',
@@ -191,10 +196,7 @@
                 _brand2.textContent=data.brand2;
                 _name2.textContent=data.name2;
                 _price2.textContent=data.price2;
-                // price_menu.textContent="가격";
-                // pic_menu.textContent="사진";
-                // name_menu.textContent="제품명";
-                // brand_menu.textContent="브랜드명";
+                
                 pic1.appendChild(_pic1);
                 brand1.appendChild(_brand1);
                 name1.appendChild(_name1);
