@@ -16,16 +16,11 @@
     <body>
         <div class="split left">
             <div class="weather">
-                <div class="col-md-10 col-lg-8 col-xl-6">
-                    <div class="card bg-black text-white" style="border-radius: 40px; width: 12cm; height: 12cm;">
-                        <div class="bg-image" style="border-radius: 35px;">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp" class="card-img-top" alt="weather" style="border-radius: 40px" />
-                            <div class="mask" style="background-color: rgba(19, 100, 151, 0.5);"></div>
-                        </div>
-                        <div class="card-image-overlay text-white p-5">
-                            <h4 id="location; temperature">도시: <%= loc %>  기온: <%= temp %></h4>
-                            <p id="description; air">날씨: <%= weather %>  미세먼지: <%= air %></p>
-                        </div>
+                <div class="card text-center" style="max-width: 12cm;">
+                    <img class="card-img" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp" alt="weather" />
+                    <div class="text-black; centered">
+                        <h4 id="location; temperature">도시: <%= loc %>  기온: <%= temp %></h4>
+                        <p id="description; air">날씨: <%= weather %>  미세먼지: <%= air %></p>
                     </div>
                 </div>
             </div>
