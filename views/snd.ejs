@@ -14,25 +14,20 @@
     
     <!--HTMLCode-->
     <body>
-        <div class="split left"> 
-            <div class="aboveCentered">
-                <i class="bi bi-clouds"></i>
-            </div>
+        <div class="split left">
             <div class="weather">
-                <table class="hehe">
-                    <tr>
-                        <th>Temperature:</th>
-                        <th>Weather:</th>
-                        <th>Location:</th>
-                        <th>Dust:</th>
-                    </tr>
-                    <tr>
-                        <td id="temperature"><%= temp %>°C</td>
-                        <td id="description"><%= weather %></td>
-                        <td id="location"><%= loc %></td>
-                        <td id="air"><%= air %></td>
-                    </tr>
-                </table>
+                <div class="col-md-10 col-lg-8 col-xl-6">
+                    <div class="card bg-black text-white" style="border-radius: 40px; width: 12cm; height: 12cm;">
+                        <div class="bg-image" style="border-radius: 35px;">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp" class="card-img-top" alt="weather" style="border-radius: 40px" />
+                            <div class="mask" style="background-color: rgba(19, 100, 151, 0.5);"></div>
+                        </div>
+                        <div class="card-image-overlay text-white p-5">
+                            <h4 id="location; temperature">도시: <%= loc %>  기온: <%= temp %></h4>
+                            <p id="description; air">날씨: <%= weather %>  미세먼지: <%= air %></p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="recommendation">
                 <h2>추천 옷: <% for(let value of clothe_info){ %>

@@ -22,7 +22,7 @@ h2 {
 /* Control the right side */
 .right {
     right: 0;
-    background-color: lightblue;
+    background-color: white;
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -52,31 +52,18 @@ h2 {
 
 .weather {
     position: absolute;
-    top: 60%;
+    top: 20%;
     left: 20%;
-}
-
-.hehe {
-    border-radius:30px;
-    background-color: aquamarine;
-    padding: 20px;
-    width: 450px;
-    height: 150px;
-}
-
-table {
-    border: 1px solid black;
-    border-collapse: separate;
-}
-
-i {
-    font-size: 2000%;
 }
 
 .aboveCentered {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+h4, h5, p {
+    font-size: 24px;
 }
