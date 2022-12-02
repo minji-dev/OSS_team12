@@ -16,7 +16,7 @@
     <body>
         <div class="split left">
             <div class="weather">
-                <div class="card bg-image" style="width: 12cm;">
+                <div class="card bg-image" style="width: 10cm; left: -15%;">
                     <img class="card-img" src="img/sky.jpg" alt="weather" />
                     <div class="text-black">
                         <h4 class="center-left-0" id="location"><i class="bi bi-pin"></i> City: <%= loc %></h4>
@@ -27,7 +27,8 @@
                 </div>
             </div>
             <div class="recommendation">
-                <h2>추천 옷: <% for(let value of clothe_info){ %>
+                <h2>Today's Outfit Recommendation: </h2>
+                <h2><% for(let value of clothe_info){ %>
                     <%= value %>
                     <% } %>
                 </h2>
@@ -35,7 +36,7 @@
         </div>
         
         <div class="split right">
-            <div class="centered"> <!--크롤링위한 id 생성 완료-->
+            <div class="centered">
                 <div id="closet">
                     <% for(let value of clothe_info){ %>
                         <button class="clothe_button">
@@ -76,13 +77,8 @@
                             <h2 id="price2"></h2>
                         </div>
                     </div>
-                        
-                <!--</div>
-                <h2 id="pic">pic</h2>
-                <h2 id="brand">brand</h2>
-                <h2 id="name">name</h2>
-                <h2 id="price">price</h2>-->
-            
+                </div>
+            </div>
         </div>
     </body>
 

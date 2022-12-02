@@ -16,13 +16,15 @@ h2 {
 /* Control the left side */
 .left {
     left: 0;
+    width: 30%;
     background-color: white;
 }
 
 /* Control the right side */
 .right {
     right: 0;
-    background-color: white;
+    width:70%;
+    background-color: lightblue;
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -63,8 +65,8 @@ h2 {
 
 .recommendation {
     position: absolute;
-    top: 80%;
-    left: 30%
+    top: 65%;
+    left: 20.2%
 }
 
 .btnMale {
@@ -98,4 +100,14 @@ h2 {
 
 h4, h5, p {
     font-size: 20px;
+}
+
+h2 {
+    font-size: 31px;
+}
+
+.clothe_button {
+    padding: 32px 16px;
+    border: none;
+    background: none;
 }
