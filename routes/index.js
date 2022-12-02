@@ -20,23 +20,23 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/musinsa',(req,res)=>{
+router.get('/musinsa', async (req,res) => {
     let type=req.query.type;
     const header={
         headers:{
             "User-Agent":"..."
         }
     }
-    let url="https://www.musinsa.com/search/musinsa/integration?type=&q="+type;
+    let url= await "https://www.musinsa.com/search/musinsa/integration?type=&q="+type;
     let send_things={};
     
-    https.get(url,header,(red)=>{
+    https.get(url, header, async (red) => {
         let data="";
         
-        red.on("data",(d)=>{
+        await red.on("data",(d)=>{
             data+=d;
         })
-        red.on("end",()=>{
+        await red.on("end",()=>{
             let root=parser.parse(data);
             const all_brand=root.querySelectorAll(".item_title");
             send_things['brand1']=all_brand[0].innerText.trim();
