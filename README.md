@@ -5,7 +5,7 @@
   <strong>실시간 날씨 정보</strong>에 대한 <strong>무신사 옷 추천 서비스</strong>
 </p>
 <p align="center">
-  <img src="public/img/썸네일.jpg" width=70% height="300">
+  <img src="public/img/썸네일.jpg" height="300">
  </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 
 ### Features
  * 실시간 날씨 정보
- * 추천 옷 종류(ex. 4℃ 이하일 때 => 패딩, 코트, 목도리)
+ * 추천 옷 종류 (ex. 4℃ 이하일 때 => 패딩, 코트, 목도리)
  * 무신사 랭킹 1위인 제품에 대한 정보
     * 브랜드
     * 제품명
