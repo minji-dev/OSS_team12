@@ -1,3 +1,12 @@
-body {
-    background-image: url("/public/img/backgroundImg.PNG");
+.container {
+    background-color: beige;
+    float: left;
+}
+
+.btn {
+    position: absolute;
+    left: 690px;
+    top: 540px;
+    padding: 16px 36px;
+    font-size: 30px;
 }
