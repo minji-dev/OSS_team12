@@ -32,6 +32,7 @@
  ### Screenshot
 
 <p align="left">
+  <img src="public/img/시작화면.png" width=70% height=70%>
   <img src="public/img/시연1.png" width=70% height=70%>
   <img src="public/img/시연2.png" width=70% height=70%>
   <img src="public/img/시연3.png" width=70% height=70%>
