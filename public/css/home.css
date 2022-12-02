@@ -42,8 +42,10 @@ body {
   line-height: normal;
   max-width: 100%;
   overflow: visible;
-  padding: 2px 24px;
-  position: relative;
+  padding: 4px 48px;
+  position: absolute;
+  left: 705px;
+  top: 520px;
   text-align: center;
   text-transform: none;
   transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
