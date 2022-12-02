@@ -5,7 +5,7 @@
   <strong>실시간 날씨 정보</strong>에 대한 <strong>무신사 옷 추천 서비스</strong>
 </p>
 <p align="center">
-  <img src="public/image/썸네일.jpg" width=70% height="300">
+  <img src="public/img/썸네일.jpg" width=70% height="300">
  </p>
 
 <p align="center">
@@ -32,10 +32,10 @@
  ### Screenshot
 
 <p align="left">
-  <img src="public/image/시연1.png" width=70% height=70%>
-  <img src="public/image/시연2.png" width=70% height=70%>
-  <img src="public/image/시연3.png" width=70% height=70%>
-  <img src="public/image/시연4.png" width=70% height=70%>
+  <img src="public/img/시연1.png" width=70% height=70%>
+  <img src="public/img/시연2.png" width=70% height=70%>
+  <img src="public/img/시연3.png" width=70% height=70%>
+  <img src="public/img/시연4.png" width=70% height=70%>
  </p>
 
 ### Demo
