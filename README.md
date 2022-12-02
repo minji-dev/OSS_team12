@@ -4,7 +4,7 @@
 <p align="center">
   <strong>실시간 날씨 정보</strong>에 대한 <strong>무신사 옷 추천 서비스</strong>
 </p>
-<img src="public/image/썸네일.jpg"  width="700" height="300">
+<img src="public/image/썸네일.jpg" width=100% height="300">
 
 <p align="center">
   <a href="#Description">Description</a> •
