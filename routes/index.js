@@ -73,6 +73,7 @@ router.get('/location', async (req, res, next) => {
             res.sendStatus(404);
         } else {
             weather_info = await JSON.parse(body);
+            console.log(weather_info);
             if (weather_info.main === undefined) {
                 res.sendStatus(404);
             } else {
