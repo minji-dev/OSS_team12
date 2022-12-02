@@ -17,8 +17,13 @@ body {
 }
 
 
+h1 {
+    color: black;
+}
+
 h2 {
     color: black;
+    font-size: 18px;
 }
 
 /* Control the left side */
@@ -72,7 +77,7 @@ h2 {
     border-radius: 4px;
     border: medium solid #000000;
     background-color:rgba(0, 0, 0, 0.688);
-    font-family: "Arial", Impact, Charcoal, sans-serif;
+    font-family: 'Gowun Dodum', sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: #ffffff;
@@ -83,12 +88,15 @@ h2 {
     top: -300px;
     display: none;
 }
+
 #snd {
     margin: 0 auto;
 }
+
 .clothe_button:focus {
     background-color: lightgray;
 }
+
 h4, h5, p {
     font-size: 20px;
 }
