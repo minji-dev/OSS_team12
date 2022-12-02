@@ -15,63 +15,66 @@
     
     <!--HTMLCode-->
     <body>
-        <div class="split left">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-5">
-                <div id="wrapper-bg" class="card text-black bg-image shadow-4-strong" style="background-image: 'img/sky.jpg';"  >
-                <!-- Main current data -->
-                    <div class="card-body p-4 border-0">
-                        <div class="text-center mb-3">
-                        <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
-                        <p class="mb-1" id="wrapper-description"><%= descript %></p>
-                        <h2 id="wrapper-temp"><%= temp %>°C</p>
-                        <p class="">Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
+        <div class="wrapper">
+            <div class="left">
+                <!--<div class="row d-flex justify-content-center align-items-center h-100">-->
+                <div class="left-container">
+                    <div id="wrapper-bg" class="card text-black bg-image shadow-4-strong" style="background-image: 'img/sky.jpg';"  >
+                    <!-- Main current data -->
+                        <div class="card-body p-4 border-0">
+                            <div class="text-center mb-3">
+                            <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
+                            <p class="mb-1" id="wrapper-description"><%= descript %></p>
+                            <h2 id="wrapper-temp"><%= temp %>°C</p>
+                            <p class="">Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
+                            </div>
                         </div>
                     </div>
+                <!--</div>-->
                 </div>
             </div>
-        </div>
-        
-        <div class="split right">
-            <div class="centered">
-                <div id="closet">
-                    <% for(let value of clothe_info){ %>
-                        <button class="clothe_button">
-                            <%= value %>
-                        </button>
-                    <% } %>
-                </div>
-                <div class="container text-center">
-                    <div class="row">
-                        <div class="col">
-                            <h2 id="pic1"></h2>
-                        </div>
-                        <div class="col">
-                            <h2 id="pic2"></h2>
-                        </div>
+            
+            <div class="right">
+                <div class="centered">
+                    <div id="closet">
+                        <% for(let value of clothe_info){ %>
+                            <button class="clothe_button">
+                                <%= value %>
+                            </button>
+                        <% } %>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <h2 id="brand1"></h2>
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col">
+                                <h2 id="pic1"></h2>
+                            </div>
+                            <div class="col">
+                                <h2 id="pic2"></h2>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h2 id="brand2"></h2>
+                        <div class="row">
+                            <div class="col">
+                                <h2 id="brand1"></h2>
+                            </div>
+                            <div class="col">
+                                <h2 id="brand2"></h2>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h2 id="name1"></h2>
+                        <div class="row">
+                            <div class="col">
+                                <h2 id="name1"></h2>
+                            </div>
+                            <div class="col">
+                                <h2 id="name2"></h2>
+                            </div>
                         </div>
-                        <div class="col">
-                            <h2 id="name2"></h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <h2 id="price1"></h2>
-                        </div>
-                        <div class="col">
-                            <h2 id="price2"></h2>
+                        <div class="row">
+                            <div class="col">
+                                <h2 id="price1"></h2>
+                            </div>
+                            <div class="col">
+                                <h2 id="price2"></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
