@@ -4,9 +4,8 @@ const express = require('express');
 const request = require('request');
 const router = express.Router();
 const conf = require('../conf/conf');
-const https=require("https");
-const parser=require("node-html-parser");
-const { send } = require('process');
+const https = require("https");
+const parser = require("node-html-parser");
 
 let lat;
 let lon;
@@ -74,7 +73,7 @@ router.get('/location', async (req, res, next) => {
     lat = req.query.lat;
     lon = req.query.lon;
     let url = await api+`weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-    clothe_info=[];
+    clothe_info = [];
     request(url, async (err, res2, body) => {
         if (err) {
             res.sendStatus(404);
