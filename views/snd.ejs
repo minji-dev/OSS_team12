@@ -15,23 +15,30 @@
     <!--HTMLCode-->
     <body>
         <div class="split left">
-            <div class="weather">
-                <div class="card bg-image" style="width: 12cm;">
-                    <img class="card-img" src="img/sky.jpg" alt="weather" />
-                    <div class="text-black">
-                        <h4 class="center-left-0" id="location"><i class="bi bi-pin"></i> City: <%= loc %></h4>
-                        <h4 class="center-left-1" id="temperature"><i class="bi bi-thermometer"></i> Temperature: <%= temp %></h4>
-                        <p class="center-left-2" id="description"><i class="bi bi-cloud-sun"></i> Weather: <%= weather %></p>
-                        <p class="center-left-3" id="air"><i class="bi bi-cloud-fog2"></i> Fine Dust: <%= air %></p>
-                    </div>
+            <section class="vh-100">
+                <div class="container py-5">
+
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-9 col-lg-7 col-xl-5">
+
+                      <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong"
+                        style="background-image: url('img/clouds.gif');"  >
+                        <!-- Main current data -->
+                        <div class="card-body p-4 border-0">
+                          <div class="text-center mb-3">
+                            <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
+                            <p class="mb-1" id="wrapper-description"><%= descript %></p>
+                            <p class="display-1 mb-1" id="wrapper-temp"><%= temp %>°C</p><p></p>
+                            <span class="">Find dust: <span id="wrapper-dust"><%= dust %></span></span>
+                          </div>
+                        </div>              
+                      </div>
+                      
+                  </div>
+              
                 </div>
-            </div>
-            <div class="recommendation">
-                <h2>추천 옷: <% for(let value of clothe_info){ %>
-                    <%= value %>
-                    <% } %>
-                </h2>
-            </div>
+            </section>
+
         </div>
         
         <div class="split right">
@@ -87,6 +94,44 @@
     </body>
 
     <script>
+        // Backgrounds
+        fetch('http://localhost:3000/weather', {
+            method:'GET',
+        })
+        .then(response => response.json())
+        .then(data => { 
+            switch (data.weather) {
+                case "Snow":
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
+                    break;
+                case "Clouds":
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
+                    break;
+                case "Fog":
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/fog.gif')";
+                    break;
+                case "Rain":
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/rain.gif')";
+                    break;
+                case "Clear":
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+                    break;
+                case "Thunderstorm":
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/thunderstorm.gif')";
+                    break;
+                default:
+                    document.getElementById("wrapper-bg").style.backgroundImage =
+                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/clear.gif')";
+                    break;
+            }
+        });
+
         const closet=document.getElementById("closet");
         const brand1=document.getElementById("brand1");
         const name1=document.getElementById("name1");
@@ -97,7 +142,6 @@
         const price2=document.getElementById("price2");
         const pic2=document.getElementById("pic2");
         let closet_type;
-        
         
         //클릭한 버튼의 옷종류이름가져오기
         closet.addEventListener('click',(e)=>{
@@ -132,9 +176,8 @@
             fetch(url,{
                 method:'GET',
             })
-            .then(response=>response.json())
-            .then(data=>{
-                
+            .then(response => response.json())
+            .then(data => {
                 const _pic1=document.createElement("img");
                 const _brand1=document.createElement("div");
                 const _name1=document.createElement("div");
@@ -156,8 +199,6 @@
                 _name2.textContent=data.name2;
                 _price2.textContent=data.price2;
                 
-                
-               
                 pic1.appendChild(_pic1);
                 brand1.appendChild(_brand1);
                 name1.appendChild(_name1);
