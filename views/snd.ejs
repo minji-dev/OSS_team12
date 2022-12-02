@@ -15,30 +15,20 @@
     <!--HTMLCode-->
     <body>
         <div class="split left">
-            <section class="vh-100">
-                <div class="container py-5">
-
-                  <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-md-9 col-lg-7 col-xl-5">
-
-                      <div id="wrapper-bg" class="card text-white bg-image shadow-4-strong"
-                        style="background-image: url('img/clouds.gif');"  >
-                        <!-- Main current data -->
-                        <div class="card-body p-4 border-0">
-                          <div class="text-center mb-3">
-                            <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
-                            <p class="mb-1" id="wrapper-description"><%= descript %></p>
-                            <p class="display-1 mb-1" id="wrapper-temp"><%= temp %>°C</p><p></p>
-                            <span class="">Find dust: <span id="wrapper-dust"><%= dust %></span></span>
-                          </div>
-                        </div>              
-                      </div>
-                      
-                  </div>
-              
+            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-5">
+                <div id="wrapper-bg" class="card text-black bg-image shadow-4-strong" style="background-image: 'img/sky.jpg';"  >
+                <!-- Main current data -->
+                    <div class="card-body p-4 border-0">
+                        <div class="text-center mb-3">
+                        <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
+                        <p class="mb-1" id="wrapper-description"><%= descript %></p>
+                        <h2 id="wrapper-temp"><%= temp %>°C</p><p></p>
+                        <p class="">Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
+            </div>
         </div>
         
         <div class="split right">
@@ -102,7 +92,7 @@
                     break;
                 case "Clouds":
                     document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/clouds.gif')";
+                    "img/sky.jpg";
                     break;
                 case "Fog":
                     document.getElementById("wrapper-bg").style.backgroundImage =
