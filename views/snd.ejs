@@ -15,10 +15,35 @@
     <!--HTMLCode-->
     <body>
         <div class="split left">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+            <section class="vh-100" style="background-color: #f5f6f7;">
+                <div class="container py-5 h-100">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-10 col-lg-8 col-xl-6">
+                                      
+                        <div class="card bg-dark text-white" style="border-radius: 40px;">
+                            <div class="bg-image" style="border-radius: 35px;">
+                            <img id="wrapper-bg" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp"
+                                class="card-img" alt="weather" />
+                            <div class="mask" style="background-color: rgba(190, 216, 232, .5);"></div>
+                            </div>
+                            
+                            <div class="card-img-overlay text-dark p-5">
+                            <h4 class="mb-0"><%= loc %></h4>
+                            <p class="display-2 my-3"><%= temp %>°C</p>
+                            <p class="mb-2">Feels Like: <strong><%= feels %>°C</strong></p>
+                            <p class="mb-2">Fine dust: <strong><%= dust %></strong></p>
+                            <h5><%= descript %></h5>
+                            </div>
+                        </div>    
+
+                    </div>
+                  </div>
+                </div>
+            </section>
+
+            <!-- <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-5">
                 <div id="wrapper-bg" class="card text-black bg-image shadow-4-strong" style="background-image: 'img/sky.jpg';"  >
-                <!-- Main current data -->
                     <div class="card-body p-4 border-0">
                         <div class="text-center mb-3">
                         <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
@@ -28,7 +53,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         
         <div class="split right">
@@ -87,9 +112,8 @@
         .then(data => { 
             switch (data.weather) {
                 case "Snow":
-                    document.getElementById("wrapper-bg").style.backgroundImage =
-                    "url('https://mdbgo.io/ascensus/mdb-advanced/img/snow.gif')";
-                    break;
+                    document.getElementById("wrapper-bg").src = "응애";
+                    break;  
                 case "Clouds":
                     document.getElementById("wrapper-bg").style.backgroundImage =
                     "img/sky.jpg";

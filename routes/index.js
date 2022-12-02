@@ -80,6 +80,7 @@ router.get('/location', async (req, res, next) => {
             res.sendStatus(404);
         } else {
             weather_info = await JSON.parse(body);
+            console.log(weather_info);
             if (weather_info.main === undefined) {
                 res.sendStatus(404);
             } else {
@@ -153,6 +154,7 @@ router.get('/main', (req, res) => {
         descript: weather_info.weather[0].description,
         loc: weather_info.name,
         temp: weather_info.main.temp,
+        feels: weather_info.main.feels_like,
         dust: air_info.list[0].main.aqi,
         clothe_info: clothe_info,
         error: null
