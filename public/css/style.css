@@ -9,6 +9,17 @@
     padding-top: 20px;
 }
 
+body {
+    font-family: 'Bubblegum Sans', 'Noto Sans KR';
+}
+
+@font-face {
+    font-family: 'Bubblegum Sans';
+    src: url(NotoSansKR-Black);
+    unicode-range: U+0041-005A;
+    unicode-range: U+0061-007A;
+}
+
 h2 {
     color: black;
 }
