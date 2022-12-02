@@ -16,12 +16,14 @@ h2 {
 /* Control the left side */
 .left {
     left: 0;
+    width: 30%;
     background-color: white;
 }
 
 /* Control the right side */
 .right {
     right: 0;
+    width:70%;
     background-color: lightblue;
 }
 
@@ -32,6 +34,39 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.center-left-0 {
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    transform: translate(-50%, -30%);
+}
+
+.center-left-1 {
+    position: absolute;
+    top: 40%;
+    left: 39%;
+    transform: translate(-50%, -30%);
+}
+
+.center-left-2 {
+    position: absolute;
+    top: 55%;
+    left: 36%;
+    transform: translate(-50%, -30%);
+}
+.center-left-3 {
+    position: absolute;
+    top: 70%;
+    left: 33%;
+    transform: translate(-50%, -30%);
+}
+
+.recommendation {
+    position: absolute;
+    top: 65%;
+    left: 20.2%
 }
 
 .btnMale {
@@ -47,35 +82,32 @@ h2 {
     position: absolute;
     left: -250px;
     top: -350px;
+    display: none;
 }
 
 .weather {
     position: absolute;
-    top: 60%;
+    top: 20%;
     left: 20%;
-}
-
-.hehe {
-    border-radius:30px;
-    background-color: aquamarine;
-    padding: 20px;
-    width: 450px;
-    height: 150px;
-}
-
-table {
-    border: 1px solid black;
-    border-collapse: separate;
-}
-
-i {
-    font-size: 2000%;
 }
 
 .aboveCentered {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+}
+
+h4, h5, p {
+    font-size: 20px;
+}
+
+h2 {
+    font-size: 31px;
+}
+
+.clothe_button {
+    padding: 32px 16px;
+    border: none;
+    background: none;
 }
