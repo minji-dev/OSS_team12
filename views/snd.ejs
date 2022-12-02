@@ -16,11 +16,13 @@
     <body>
         <div class="split left">
             <div class="weather">
-                <div class="card text-center" style="max-width: 12cm;">
-                    <img class="card-img" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp" alt="weather" />
-                    <div class="text-black; centered">
-                        <h4 id="location; temperature">도시: <%= loc %>  기온: <%= temp %></h4>
-                        <p id="description; air">날씨: <%= weather %>  미세먼지: <%= air %></p>
+                <div class="card bg-image" style="width: 12cm;">
+                    <img class="card-img" src="../sky.jpg" alt="weather" />
+                    <div class="text-black">
+                        <h4 class="center-left-0" id="location"><i class="bi bi-pin"></i> City: <%= loc %></h4>
+                        <h4 class="center-left-1" id="temperature"><i class="bi bi-thermometer"></i> Temperature: <%= temp %></h4>
+                        <p class="center-left-2" id="description"><i class="bi bi-cloud-sun"></i> Weather: <%= weather %></p>
+                        <p class="center-left-3" id="air"><i class="bi bi-cloud-fog2"></i> Fine Dust: <%= air %></p>
                     </div>
                 </div>
             </div>
