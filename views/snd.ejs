@@ -9,42 +9,162 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <!--Custom CSS Style-->
         <link rel="stylesheet" href="css/style.css">
-        <title>Before Gender Selected</title>
+        <title>Home</title>
     </head>
     
     <!--HTMLCode-->
     <body>
-        <div class="split left"> 
-            <div class="aboveCentered">
-                <i class="bi bi-clouds"></i>
-            </div>
+        <div class="split left">
             <div class="weather">
-                <table class="hehe">
-                    <tr>
-                        <th>Temperature:</th>
-                        <th>Weather:</th>
-                        <th>Location:</th>
-                        <th>Dust:</th>
-                    </tr>
-                    <tr>
-                        <td id="temperature"><%= temp %>°C</td>
-                        <td id="description"><%= weather %></td>
-                        <td id="location"><%= loc %></td>
-                        <td id="air"><%= air %></td>
-                    </tr>
-                </table>
+                <div class="card bg-image" style="width: 10cm; left: -15%;">
+                    <img class="card-img" src="img/sky.jpg" alt="weather" />
+                    <div class="text-black">
+                        <h4 class="center-left-0" id="location"><i class="bi bi-pin"></i> City: <%= loc %></h4>
+                        <h4 class="center-left-1" id="temperature"><i class="bi bi-thermometer"></i> Temperature: <%= temp %></h4>
+                        <p class="center-left-2" id="description"><i class="bi bi-cloud-sun"></i> Weather: <%= weather %></p>
+                        <p class="center-left-3" id="air"><i class="bi bi-cloud-fog2"></i> Fine Dust: <%= air %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation">
+                <h2>Today's Outfit Recommendation: </h2>
+                <h2><% for(let value of clothe_info){ %>
+                    <%= value %>
+                    <% } %>
+                </h2>
             </div>
         </div>
         
         <div class="split right">
-            <div class="centered"> <!--크롤링위한 id 생성 완료-->
-                <h2 id="brand">brand</h2>
-                <h2 id="name">name</h2>
-                <h2 id="price">price</h2>
-                <h2 id="pic">pic</h2>
+            <div class="centered">
+                <div id="closet">
+                    <% for(let value of clothe_info){ %>
+                        <button class="clothe_button">
+                            <%= value %>
+                        </button>
+                    <% } %>
+                </div>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="pic1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="pic2"></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="brand1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="brand2"></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="name1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="name2"></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="price1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="price2"></h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
 
-    <script></script>
+    <script>
+        const closet=document.getElementById("closet");
+        const brand1=document.getElementById("brand1");
+        const name1=document.getElementById("name1");
+        const price1=document.getElementById("price1");
+        const pic1=document.getElementById("pic1");
+        const brand2=document.getElementById("brand2");
+        const name2=document.getElementById("name2");
+        const price2=document.getElementById("price2");
+        const pic2=document.getElementById("pic2");
+        let closet_type;
+        
+        
+        //클릭한 버튼의 옷종류이름가져오기
+        closet.addEventListener('click',(e)=>{
+            
+            //자식노드 없는지 확인
+            while(brand1.firstChild){
+                brand1.removeChild(brand1.firstChild);
+            }
+            while(name1.firstChild){
+                name1.removeChild(name1.firstChild);
+            }
+            while(price1.firstChild){
+                price1.removeChild(price1.firstChild);
+            }
+            while(pic1.firstChild){
+                pic1.removeChild(pic1.firstChild);
+            }
+            while(brand2.firstChild){
+                brand2.removeChild(brand2.firstChild);
+            }
+            while(name2.firstChild){
+                name2.removeChild(name2.firstChild);
+            }
+            while(price2.firstChild){
+                price2.removeChild(price2.firstChild);
+            }
+            while(pic2.firstChild){
+                pic2.removeChild(pic2.firstChild);
+            }
+            closet_type=e.target.innerText;
+            let url='http://localhost:3000/musinsa?type='+closet_type;
+            fetch(url,{
+                method:'GET',
+            })
+            .then(response=>response.json())
+            .then(data=>{
+                
+                const _pic1=document.createElement("img");
+                const _brand1=document.createElement("div");
+                const _name1=document.createElement("div");
+                const _price1=document.createElement("div");
+                const _pic2=document.createElement("img");
+                const _brand2=document.createElement("div");
+                const _name2=document.createElement("div");
+                const _price2=document.createElement("div");
+                _pic1.src=data.photo1;
+                _pic1.width=200;
+                _pic1.height=200;
+                _brand1.textContent=data.brand1;
+                _name1.textContent=data.name1;
+                _price1.textContent=data.price1;
+                _pic2.src=data.photo2;
+                _pic2.width=200;
+                _pic2.height=200;
+                _brand2.textContent=data.brand2;
+                _name2.textContent=data.name2;
+                _price2.textContent=data.price2;
+                
+                
+               
+                pic1.appendChild(_pic1);
+                brand1.appendChild(_brand1);
+                name1.appendChild(_name1);
+                price1.appendChild(_price1);
+                pic2.appendChild(_pic2);
+                brand2.appendChild(_brand2);
+                name2.appendChild(_name2);
+                price2.appendChild(_price2);
+                
+            })
+            .catch(error=>console.log(error));
+        })
+    </script>
 </html>
