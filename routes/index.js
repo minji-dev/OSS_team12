@@ -12,7 +12,7 @@ let lat;
 let lon;
 let weather_info;
 let air_info;
-let clothe_info = [];
+let clothe_info;
 
 const api = "https://api.openweathermap.org/data/2.5/";
 const apiKey = conf.SERVICE_KEY;
@@ -74,7 +74,7 @@ router.get('/location', async (req, res, next) => {
     lat = req.query.lat;
     lon = req.query.lon;
     let url = await api+`weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
+    clothe_info=[];
     request(url, async (err, res2, body) => {
         if (err) {
             res.sendStatus(404);
