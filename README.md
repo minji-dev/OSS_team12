@@ -5,7 +5,7 @@
   <strong>실시간 날씨 정보</strong>에 대한 <strong>무신사 옷 추천 서비스</strong>
 </p>
 <p align="center">
-  <img src="public/img/썸네일.jpg" width=70% height="300">
+  <img src="public/img/썸네일.jpg" height="300">
  </p>
 
 <p align="center">
@@ -18,17 +18,17 @@
 
 
 ## Description
-***
 
 
 ### Features
  * 실시간 날씨 정보
- * 추천 옷종류(ex. 4℃ 이하일때=> 패딩, 코트, 목도리)
- * 무신사 랭킹1위인 제품에 대한 정보
+ * 추천 옷 종류 (ex. 4℃ 이하일 때 => 패딩, 코트, 목도리)
+ * 무신사 랭킹 1위인 제품에 대한 정보
     * 브랜드
     * 제품명
     * 가격
     * 사진
+    
  ### Screenshot
 
 <p align="left">
@@ -44,7 +44,7 @@
 [발표 영상](링크)
 
 ## Usage
-***
+
 
 ### Prerequistes
 
@@ -76,18 +76,18 @@ After start server, You will then be able to access it at
 
 
 ## Credits
-***
+
 - [`Node.js`](https://nodejs.org/ko/)
 - [`Express`](https://expressjs.com/ko/)
 
 
 ## Other Documents
-***
+
 ### 폴더 구조
 + /public: 
   + 외부에서 접근 가능한 파일들
 + /routes: 
-  + 라우팅을 위한 폴더, 클라이언트에서 날씨api, 무신사 웹크롤링 request 요청시 수행하는 파일
+  + 라우팅을 위한 폴더, 클라이언트에서 날씨api, 무신사 웹크롤링 request 요청 시 수행하는 파일
 + /views: 
   + request 요청에 대한 logic을 처리한 후 클라이언트에 응답을 보낼 때 ejs 코드로 변환해서 반환하는 파일들
  
