@@ -46,20 +46,59 @@
                         </button>
                     <% } %>
                 </div>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="pic1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="pic2"></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="brand1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="brand2"></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="name1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="name2"></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="price1"></h2>
+                        </div>
+                        <div class="col">
+                            <h2 id="price2"></h2>
+                        </div>
+                    </div>
+                        
+                <!--</div>
+                <h2 id="pic">pic</h2>
                 <h2 id="brand">brand</h2>
                 <h2 id="name">name</h2>
-                <h2 id="price">price</h2>
-                <h2 id="pic">pic</h2>
-            </div>
+                <h2 id="price">price</h2>-->
+            
         </div>
     </body>
 
     <script>
         const closet=document.getElementById("closet");
-        const brand=document.getElementById("brand");
-        const name=document.getElementById("name");
-        const price=document.getElementById("price");
-        const pic=document.getElementById("pic");
+        const brand1=document.getElementById("brand1");
+        const name1=document.getElementById("name1");
+        const price1=document.getElementById("price1");
+        const pic1=document.getElementById("pic1");
+        const brand2=document.getElementById("brand2");
+        const name2=document.getElementById("name2");
+        const price2=document.getElementById("price2");
+        const pic2=document.getElementById("pic2");
         let closet_type;
         
         
@@ -67,17 +106,29 @@
         closet.addEventListener('click',(e)=>{
             
             //자식노드 없는지 확인
-            while(brand.firstChild){
-                brand.removeChild(brand.firstChild);
+            while(brand1.firstChild){
+                brand1.removeChild(brand1.firstChild);
             }
-            while(name.firstChild){
-                name.removeChild(name.firstChild);
+            while(name1.firstChild){
+                name1.removeChild(name1.firstChild);
             }
-            while(price.firstChild){
-                price.removeChild(price.firstChild);
+            while(price1.firstChild){
+                price1.removeChild(price1.firstChild);
             }
-            while(pic.firstChild){
-                pic.removeChild(pic.firstChild);
+            while(pic1.firstChild){
+                pic1.removeChild(pic1.firstChild);
+            }
+            while(brand2.firstChild){
+                brand2.removeChild(brand2.firstChild);
+            }
+            while(name2.firstChild){
+                name2.removeChild(name2.firstChild);
+            }
+            while(price2.firstChild){
+                price2.removeChild(price2.firstChild);
+            }
+            while(pic2.firstChild){
+                pic2.removeChild(pic2.firstChild);
             }
             closet_type=e.target.innerText;
             let url='http://localhost:3000/musinsa?type='+closet_type;
@@ -86,18 +137,39 @@
             })
             .then(response=>response.json())
             .then(data=>{
-                const _brand=document.createElement("div");
-                const _name=document.createElement("div");
-                const _price=document.createElement("div");
-                const _pic=document.createElement("img");
-                _brand.textContent=data.brand;
-                _name.textContent=data.name;
-                _price.textContent=data.price;
-                _pic.src=data.photo;
-                brand.appendChild(_brand);
-                name.appendChild(_name);
-                price.appendChild(_price);
-                pic.appendChild(_pic);
+                
+                const _pic1=document.createElement("img");
+                const _brand1=document.createElement("div");
+                const _name1=document.createElement("div");
+                const _price1=document.createElement("div");
+                const _pic2=document.createElement("img");
+                const _brand2=document.createElement("div");
+                const _name2=document.createElement("div");
+                const _price2=document.createElement("div");
+                _pic1.src=data.photo1;
+                _pic1.width=200;
+                _pic1.height=200;
+                _brand1.textContent=data.brand1;
+                _name1.textContent=data.name1;
+                _price1.textContent=data.price1;
+                _pic2.src=data.photo2;
+                _pic2.width=200;
+                _pic2.height=200;
+                _brand2.textContent=data.brand2;
+                _name2.textContent=data.name2;
+                _price2.textContent=data.price2;
+                
+                
+               
+                pic1.appendChild(_pic1);
+                brand1.appendChild(_brand1);
+                name1.appendChild(_name1);
+                price1.appendChild(_price1);
+                pic2.appendChild(_pic2);
+                brand2.appendChild(_brand2);
+                name2.appendChild(_name2);
+                price2.appendChild(_price2);
+                
             })
             .catch(error=>console.log(error));
         })

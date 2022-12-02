@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
 
 router.get('/musinsa',(req,res)=>{
     let type=req.query.type;
+    
     console.log("type: "+type);
     const header={
         headers:{
@@ -47,13 +48,24 @@ router.get('/musinsa',(req,res)=>{
         })
         red.on("end",()=>{
             let root=parser.parse(data);
-            send_things['brand']=root.querySelector(".item_title").innerText.trim();
+            const all_brand=root.querySelectorAll(".item_title");
+            send_things['brand1']=all_brand[0].innerText.trim();
+            send_things['brand2']=all_brand[1].innerText.trim();
             console.log(send_things);
-            send_things['name']=root.querySelector(".list_info a[title]").innerText.trim();
+            const all_name=root.querySelectorAll(".list_info a[title]");
+            send_things['name1']=all_name[0].innerText.trim();
+            send_things['name2']=all_name[1].innerText.trim();
+            //send_things['name']=root.querySelector(".list_info a[title]").innerText.trim();
             console.log(send_things);
-            send_things['price']=root.querySelector(".price").innerText.trim();
+            const all_price=root.querySelectorAll(".price");
+            send_things['price1']=all_price[0].innerText.trim();
+            send_things['price2']=all_price[1].innerText.trim();
+            //send_things['price']=root.querySelector(".price").innerText.trim();
             console.log(send_things);
-            send_things['photo']="https:"+root.querySelector("div.list_img > a > img.lazyload.lazy").attributes['data-original'];
+            const all_photo=root.querySelectorAll("div.list_img > a > img.lazyload.lazy");
+            send_things['photo1']="https:"+all_photo[0].attributes['data-original'];
+            send_things['photo2']="https:"+all_photo[1].attributes['data-original'];
+            //send_things['photo']="https:"+root.querySelector("div.list_img > a > img.lazyload.lazy").attributes['data-original'];
             console.log(send_things);
             const json=JSON.stringify(send_things);
             res.send(json);
