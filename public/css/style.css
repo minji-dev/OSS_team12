@@ -71,9 +71,38 @@ h2 {
 #closet {
     margin: 20px 0 0 0;
 }
+
+.btnMale {
+    border-radius: 4px;
+    border: medium solid #000000;
+    background-color:rgba(0, 0, 0, 0.688);
+    font-family: "Arial", Impact, Charcoal, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 16px 32px;
+    margin: 70px 70px;
+    position: absolute;
+    left: -150px;
+    top: -300px;
+    display: none;
+}
 .clothe_button:focus {
     background-color: lightgray;
 }
 h4, h5, p {
     font-size: 20px;
 }
+
+.container.text-center{
+    margin-top: 70px;
+}
+
+.btn.btn-primary.btn-lg{
+    margin:auto;
+}
+
+.border.border-dark{
+    font-size:x-large;
+}
+

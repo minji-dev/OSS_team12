@@ -130,10 +130,15 @@
         const name2=document.getElementById("name2");
         const price2=document.getElementById("price2");
         const pic2=document.getElementById("pic2");
+        const pic_menu=document.getElementById("pic menu");
+        const name_menu=document.getElementById("name menu");
+        const price_menu=document.getElementById("price menu");
+        const brand_menu=document.getElementById("brand menu");
         let closet_type;
         
         //클릭한 버튼의 옷종류이름가져오기
         closet.addEventListener('click',(e)=>{
+
             
             //자식노드 없는지 확인
             while(brand1.firstChild){
@@ -187,7 +192,10 @@
                 _brand2.textContent=data.brand2;
                 _name2.textContent=data.name2;
                 _price2.textContent=data.price2;
-                
+                price_menu.textContent="가격";
+                pic_menu.textContent="사진";
+                name_menu.textContent="제품명";
+                brand_menu.textContent="브랜드명";
                 pic1.appendChild(_pic1);
                 brand1.appendChild(_brand1);
                 name1.appendChild(_name1);
