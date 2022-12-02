@@ -18,14 +18,7 @@ const api = "https://api.openweathermap.org/data/2.5/";
 const apiKey = conf.SERVICE_KEY;
 
 router.get('/', (req, res) => {
-    res.render('index', {
-        weather: null,
-        loc: 'Locating...',
-        temp: null,
-        icon: null,
-        air: null,
-        error: null,
-    });
+    res.render('index');
 });
 
 router.get('/musinsa',(req,res)=>{
@@ -151,15 +144,18 @@ router.get('/location', async (req, res, next) => {
     })
 });
 
+router.get('/weather', (req, res) => {
+    res.json({ weather: weather_info.weather[0].main });
+});
+
 router.get('/main', (req, res) => {
     res.render('snd', {
-        weather: weather_info.weather[0].main,
+        descript: weather_info.weather[0].description,
         loc: weather_info.name,
         temp: weather_info.main.temp,
-        icon: weather_info.weather.icon,
-        air: air_info.list[0].main.aqi,
+        dust: air_info.list[0].main.aqi,
         clothe_info: clothe_info,
-        error: null,
+        error: null
     });
 });
 
