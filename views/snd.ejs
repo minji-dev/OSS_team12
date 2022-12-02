@@ -26,7 +26,8 @@
                             <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
                             <p class="mb-1" id="wrapper-description"><%= descript %></p>
                             <h2 id="wrapper-temp"><%= temp %>°C</p>
-                            <p class="">Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
+                            <p>Feels like: <span id="wrapper-feels"><%= feels %></span></span>
+                            <p>Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
                             </div>
                         </div>
                     </div>
@@ -46,8 +47,6 @@
                     <div class="container text-center">
                         <div class="row">
                             <div class="col">
-                            </div>
-                            <div class="col">
                                 <h2 id="pic1"></h2>
                             </div>
                             <div class="col">
@@ -55,8 +54,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                            </div>
                             <div class="col">
                                 <h2 id="brand1"></h2>
                             </div>
@@ -72,9 +69,7 @@
                                 <h2 id="name2"></h2>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                            </div>
+                        <div class="row"> 
                             <div class="col">
                                 <h2 id="price1"></h2>
                             </div>
@@ -142,8 +137,6 @@
         
         //클릭한 버튼의 옷종류이름가져오기
         closet.addEventListener('click',(e)=>{
-
-            
             //자식노드 없는지 확인
             while(brand1.firstChild){
                 brand1.removeChild(brand1.firstChild);
