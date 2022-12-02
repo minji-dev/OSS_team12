@@ -20,62 +20,56 @@
     <body>
         <div class="wrapper">
             <div class="left">
-                <!--<div class="row d-flex justify-content-center align-items-center h-100">-->
-                <div class="left-container">
-                    <div id="wrapper-bg" class="card text-black bg-image shadow-4-strong" style="background-image: 'img/sky.jpg';"  >
+                <div class="card p-4 border-0">
                     <!-- Main current data -->
-                        <div class="card-body p-4 border-0" style="background: #86B9E0;">
-                            <div class="text-center mb-3">
-                            <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
-                            <p class="mb-1" id="wrapper-description"><%= descript %></p>
+                    <div class="text-center mb-3">
+                    <p class="h2 mb-1" id="wrapper-name"><%= loc %></p>
+                    <p class="mb-1" id="wrapper-description"><%= descript %></p>
 
-                            <div class="icon">
-                                <% if (weather === "Snow") { %> 
-                                    <div class="weatherIcon">
-                                        <div class="snow">
-                                            <div class="inner"></div>
-                                        </div>
-                                    </div>
-                                <% } else if (weather === "Clouds") {%>
-                                    <div class="weatherIcon">
-                                        <div class="cloudy">
-                                            <div class="inner"></div>
-                                        </div>
-                                    </div>
-                                <% } else if (weather === "Fog") {%>
-                                    <div class="weatherIcon">
-                                        <div class="fog">
-                                            <div class="inner"></div>
-                                        </div>
-                                    </div>
-                                <% } else if (weather === "Rain") {%>
-                                    <div class="weatherIcon">
-                                        <div class="rain">
-                                            <div class="inner"></div>
-                                        </div>
-                                    </div>
-                                <% } else if (weather === "Thunderstorm") {%>
-                                    <div class="weatherIcon">
-                                        <div class="tstorms">
-                                            <div class="inner"></div>
-                                        </div>
-                                    </div>
-                                <% } else { %>
-                                    <div class="weatherIcon">
-                                        <div class="sunny">
-                                            <div class="inner"></div>
-                                        </div>
-                                    </div>
-                                <% } %>
+                    <div class="icon">
+                        <% if (weather === "Snow") { %> 
+                            <div class="weatherIcon">
+                                <div class="snow">
+                                    <div class="inner"></div>
+                                </div>
                             </div>
-
-                            <h1 id="wrapper-temp"><%= temp %>°C</p>
-                            <p class="mb-1">Feels like: <span id="wrapper-feels"><%= feels %></span></span>
-                            <p>Fine dust: <span id="wrapper-dust"><%= dust %></span></span>
+                        <% } else if (weather === "Clouds") {%>
+                            <div class="weatherIcon">
+                                <div class="cloudy">
+                                    <div class="inner"></div>
+                                </div>
                             </div>
-                        </div>
+                        <% } else if (weather === "Fog") {%>
+                            <div class="weatherIcon">
+                                <div class="fog">
+                                    <div class="inner"></div>
+                                </div>
+                            </div>
+                        <% } else if (weather === "Rain") {%>
+                            <div class="weatherIcon">
+                                <div class="rain">
+                                    <div class="inner"></div>
+                                </div>
+                            </div>
+                        <% } else if (weather === "Thunderstorm") {%>
+                            <div class="weatherIcon">
+                                <div class="tstorms">
+                                    <div class="inner"></div>
+                                </div>
+                            </div>
+                        <% } else { %>
+                            <div class="weatherIcon">
+                                <div class="sunny">
+                                    <div class="inner"></div>
+                                </div>
+                            </div>
+                        <% } %>
                     </div>
-                <!--</div>-->
+
+                    <h1 id="wrapper-temp"><%= temp %>°C</p>
+                    <p class="mb-1">Feels like: <span id="wrapper-feels"><%= feels %></span></span>
+                    <p>Air pollution: <span id="wrapper-dust"><%= dust %></span></span>
+                    </div>
                 </div>
             </div>
             
@@ -196,7 +190,7 @@
                 _brand2.textContent=data.brand2;
                 _name2.textContent=data.name2;
                 _price2.textContent=data.price2;
-                
+
                 pic1.appendChild(_pic1);
                 brand1.appendChild(_brand1);
                 name1.appendChild(_name1);

@@ -11,7 +11,7 @@ body {
     height: 100vh;
     padding-top: 15vh;
     font-family: 'Bubblegum Sans', 'Noto Sans KR';
-    background-color: lightgray;
+    background-color: rgb(212, 212, 212);
     display: flex;
     align-items: center;
 }
@@ -33,6 +33,7 @@ h2 {
     height: 500px;
     border-bottom-left-radius: 50px;
     border-top-left-radius: 50px;
+    display: flex;
 }
 
 /* Control the right side */
@@ -44,20 +45,20 @@ h2 {
     border-top-right-radius: 50px;
 }
 
-.left-container {
-    width: 200px;
-    margin: 100px auto;
-    height: 300px;
+.card {
+    width: 250px;
+    height: 400px;
+    border-radius: 20px / 20px;
+    background: #90c0e4;
+
+    margin: auto;
 }
+
 /* If you want the content centered horizontally and vertically */
 .centered {
     top: 50%;
     left: 50%;
     text-align: center;
-}
-
-.card-body {
-    height: 300px;
 }
 
 .clothe_button{

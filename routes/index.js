@@ -131,6 +131,18 @@ router.get('/location', async (req, res, next) => {
             if (air_info.list === undefined) {
                 res.sendStatus(404);
             } else {
+                let dust = air_info.list[0].main.aqi;
+                if(dust === 1) {
+                    air_info = "매우 좋음";
+                } else if(dust === 2) {
+                    air_info = "좋음";
+                } else if(dust === 3) {
+                    air_info = "보통";
+                } else if(dust === 4) {
+                    air_info = "나쁨";
+                } else if(dust === 5) {
+                    air_info = "매우 나쁨";
+                }
                 res.sendStatus(200);
             }
         }    
@@ -145,7 +157,7 @@ router.get('/main', (req, res) => {
         loc: weather_info.name,
         temp: weather_info.main.temp,
         feels: weather_info.main.feels_like,
-        dust: air_info.list[0].main.aqi,
+        dust: air_info,
         clothe_info: clothe_info,
         error: null
     });
