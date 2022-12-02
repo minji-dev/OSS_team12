@@ -149,6 +149,7 @@ router.get('/weather', (req, res) => {
 });
 
 router.get('/main', (req, res) => {
+    console.log(weather_info);
     res.render('snd', {
         descript: weather_info.weather[0].description,
         loc: weather_info.name,
