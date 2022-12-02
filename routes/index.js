@@ -1,8 +1,8 @@
 "use strict";
 
 const express = require('express');
-const router = express.Router();
 const request = require('request');
+const router = express.Router();
 const conf = require('../conf/conf');
 const https=require("https");
 const parser=require("node-html-parser");
@@ -77,10 +77,10 @@ router.get('/musinsa',(req,res)=>{
     
 })
 
-router.get('/location', (req, res, next) => {
+router.get('/location', async (req, res, next) => {
     lat = req.query.lat;
     lon = req.query.lon;
-    let url = api+`weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    let url = await api+`weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
     request(url, async (err, res2, body) => {
         if (err) {
@@ -135,8 +135,8 @@ router.get('/location', (req, res, next) => {
         }
         next();
     })
-}, (req, res, next) => {
-    let url = api+`air_pollution?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+}, async (req, res, next) => {
+    let url = await api+`air_pollution?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
     request(url, async (err, res3, body) => {
         if (err) {
             res.sendStatus(404);
