@@ -57,9 +57,9 @@
 Please make your own conf.js in .../conf/conf.js
 
 ```shell
-// conf.js
+// conf.JSON
 {
-"SERVICE_KEY": "[YOUR API KEY]"
+  "SERVICE_KEY": "[YOUR API KEY]"
 }
 ```
 API_KEY can be obtained at [Open Weather Map](https://api.openweathermap.org/data/2.5/weather").
@@ -76,11 +76,9 @@ $ npm install
 
 # Install additional Packages
 $ npm install request
-
-# Install nodemon
 $ npm install -g nodemon
 
-# Start development server
+# Start server
 $ npm start
 ```
 
@@ -100,7 +98,7 @@ After start server, You will then be able to access it at
 + /public: 
   + 외부에서 접근 가능한 파일들
 + /routes: 
-  + 라우팅을 위한 폴더, 클라이언트에서 날씨api, 무신사 웹크롤링 request 요청 시 수행하는 파일
+  + 라우팅을 위한 폴더, 클라이언트에서 날씨 api, 무신사 웹크롤링 request 요청 시 수행하는 파일
 + /views: 
   + request 요청에 대한 logic을 처리한 후 클라이언트에 응답을 보낼 때 ejs 코드로 변환해서 반환하는 파일들
  
