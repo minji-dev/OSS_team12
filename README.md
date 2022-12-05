@@ -54,6 +54,15 @@
 
 ### Requirements
 
+Please make your own conf.js in conf/js
+
+```shell
+// conf.js
+const API_KEY = "[YOUR API KEY]";
+const PROXY_URL = "[YOUR PROXY SERVER URL]";
+```
+API_KEY can be obtained at [SK Open API](https://openapi.sk.com/).
+
 ```shell
 # Clone this repository 
 $ git clone https://github.com/minji-dev/OSS_team12.git
@@ -66,6 +75,9 @@ $ npm install
 
 # Install additional Packages
 $ npm install request
+
+# Install nodemon
+$ npm install -g nodemon
 
 # Start development server
 $ npm start
