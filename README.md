@@ -54,14 +54,15 @@
 
 ### Requirements
 
-Please make your own conf.js in conf/js
+Please make your own conf.js in .../conf/conf.js
 
 ```shell
 // conf.js
-const API_KEY = "[YOUR API KEY]";
-const PROXY_URL = "[YOUR PROXY SERVER URL]";
+{
+"SERVICE_KEY": "[YOUR API KEY]"
+}
 ```
-API_KEY can be obtained at [SK Open API](https://openapi.sk.com/).
+API_KEY can be obtained at [Open Weather Map](https://api.openweathermap.org/data/2.5/weather").
 
 ```shell
 # Clone this repository 
