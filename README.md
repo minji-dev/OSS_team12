@@ -54,7 +54,7 @@
 
 ### Requirements
 
-Please make your own conf.js in .../conf/conf.js
+Please make your own conf.JSON in /conf/conf.JSON
 
 ```shell
 // conf.JSON
